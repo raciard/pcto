@@ -1,8 +1,16 @@
+
 body{
     background-color:  rgb(24, 26, 27);
-
 }
-
+.modal.fade .modal-dialog{
+  transition: opacity 0.5s ease-out
+}
+.modal-header .btn-close{
+  filter: invert(100%)
+}
+.modal-header{
+  border-bottom-color: rgb(24, 26, 27);
+}
 .clickable{
   cursor: pointer;
 }
@@ -18,4 +26,19 @@ body{
 }
 .settings-list *:hover{
   background-color: rgb(24, 26, 27);
+}
+
+.comment-name{
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.post-content,
+.comment-text{
+  opacity: 0.8;
+}
+
+.img-comment{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }

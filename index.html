@@ -15,11 +15,11 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" style="margin-left: .8rem; font-weight: 300; font-size: 1.3rem;">Fake<span
-                class="bg-dsf" style="font-weight: 600;">Social</span></a>
+        <a class="navbar-brand" style="margin-left: .8rem; font-weight: 400; font-size: 1.3rem; color: #FEDE00;">Fake<span
+                class="ms-1 text-dark" style="font-weight: 600; border: 1px solid; border-radius: 10px;padding: 3px; background-color: #FEDE00;">Social</span></a>
         <form class="d-flex ms-auto me-4">
             <input class="form-control mr-sm-2 bg-dark text-light" type="search" placeholder="Cerca"
-                aria-label="Search">
+                aria-label="Search" style="border-color: #FEDE00">
 
         </form>
     </nav>
@@ -124,8 +124,8 @@
                     </div>
                     <div class="card-body">
                         <img src="https://picsum.photos/600/400" class="post-content p-3 img-fluid" />
-                        <p class="card-content ms-3">Guardate che bell'immagine!</p>
-                        <p href="#" class="m-0 ms-auto text-end text-secondary clickable">Leggi i commenti</p>
+                        <p class="card-content ms-3 post-content">Guardate che bell'immagine!</p>
+                        <p href="#" class="m-0 ms-auto text-end text-secondary clickable " data-bs-toggle="modal" data-bs-target="#exampleModal">Leggi i commenti</p>
 
                     </div>
 
@@ -136,15 +136,105 @@
 
 
 
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    Launch demo modal
-                </button>
+            
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg  modal-dialog-scrollable">
+                <div class="modal-content bg-dark text-light">
+                    <div class="modal-header" style="">
+                        <div class=" bg-dark text-light mt-1">
+                            <div class=" pt-3">
+                                <div class="d-flex ">
+                                    <img src="https://picsum.photos/300/300/?sdsas" alt="Avatar"
+                                        style="border-radius: 50%; width: 50px; height: 50px;">
+                                    <div style="line-height: 50px;" class="ms-2 comment-name">Stefano De Giuseppi</div>
+                                    <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                        <i class="fa fa-arrow-up clickable"></i>
+                                        <div class="">10</div>
+                                        <i class="fa fa-arrow-down text-danger clickable arrow"></i>
+        
+                                    </div>
+                                </div>
+                            </div>
+                            <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur architecto officiis neque sequi voluptas obcaecati accusamus, commodi earum vel sint minus libero. Et veniam porro pariatur? Assumenda in eius sapiente? </div>
+        
+                        </div>
+                    <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                    </div>
+                    <div class="modal-body ms-5" >
+                        <div class="d-flex flex-column">
+                            <div>
+                                <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfsd" alt="Avatar" style="border-radius: 50%; ">
+                                    <div class="ms-2 comment-name"style="line-height: 50px; ">Giuseppe Di Stefano</div>
+                                    <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                        <i class="fa fa-arrow-up text-success clickable"></i>
+                                        <div class="">12</div>
+                                        <i class="fa fa-arrow-down clickable"></i>
+        
+                                    </div>
+                                
+                                </div>
+                                <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                
+                            </div>
 
-                <!-- Vertically centered scrollable modal -->
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    ...
+                            <div>
+                                <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfsd" alt="Avatar" style="border-radius: 50%; ">
+                                    <div class="ms-2 comment-name"style="line-height: 50px; ">Giuseppe Di Stefano</div>
+                                    <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                        <i class="fa fa-arrow-up text-success clickable"></i>
+                                        <div class="">12</div>
+                                        <i class="fa fa-arrow-down clickable"></i>
+        
+                                    </div>
+                                
+                                </div>
+                                <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                
+                            </div>
+
+                            <div>
+                                <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfsd" alt="Avatar" style="border-radius: 50%; ">
+                                    <div class="ms-2 comment-name"style="line-height: 50px; ">Giuseppe Di Stefano</div>
+                                    <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                        <i class="fa fa-arrow-up text-success clickable"></i>
+                                        <div class="">12</div>
+                                        <i class="fa fa-arrow-down clickable"></i>
+        
+                                    </div>
+                                
+                                </div>
+                                <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                
+                            </div>
+
+                            <div>
+                                <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfsd" alt="Avatar" style="border-radius: 50%; ">
+                                    <div class="ms-2 comment-name"style="line-height: 50px; ">Giuseppe Di Stefano</div>
+                                    <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                        <i class="fa fa-arrow-up text-success clickable"></i>
+                                        <div class="">12</div>
+                                        <i class="fa fa-arrow-down clickable"></i>
+        
+                                    </div>
+                                
+                                </div>
+                                <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                
+                            </div>
+                            
+
+                        </div>
+                    
+                        
+                    
                 </div>
+                </div>
+            </div>
+  
+
+                
             <div class="col-md-3">
 
             </div>
@@ -161,17 +251,6 @@
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
 
-    <script>
-        const myModal = document.getElementById('myModal')
-        const myInput = document.getElementById('button')
-
-        myModal.addEventListener('shown.bs.modal', function () {
-        myInput.focus()
-        })
-
-
-
-    </script>
-</body>
+   
 
 </html>
