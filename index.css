@@ -2,6 +2,10 @@
 body{
     background-color:  rgb(24, 26, 27);
 }
+
+.yellow-border{
+  border-color: #FEDE00;
+}
 .modal.fade .modal-dialog{
   transition: opacity 0.5s ease-out
 }
