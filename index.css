@@ -48,5 +48,33 @@ body{
 }
 
 .btn-toolbar{
-  padding-top: 10px;;
+  padding-top: 10px;
+}
+
+.btn-primary{
+  color: #212529;
+  background-color: #FEDE00;
+  border-color: #FEDE00;
+}
+
+.btn-primary:hover{
+  color: #212529;
+  background-color: #cfb400;
+  border-color: #cfb400;
+}
+
+.btn:hover{
+  color: #212529;
+  background-color: #cfb400;
+  border-color: #cfb400;
+}
+
+.btn-link:hover {
+  color: #cfb400;
+}
+
+
+
+.fake-social{
+  color: #FEDE00;
 }
