@@ -5,22 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAKE SOCIAL</title>
+    <link rel="icon" type="image/png" href="img/ico.png"/>
+    <title>Home - FakeSocial</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="index.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" style="margin-left: .8rem; font-weight: 400; font-size: 1.3rem; color: #FEDE00;">Fake<span
+        <a href="index.html" class="navbar-brand" style="margin-left: .8rem; font-weight: 400; font-size: 1.3rem; color: #FEDE00;">Fake<span
                 class="ms-1 text-dark" style="font-weight: 600; border: 1px solid; border-radius: 10px;padding: 3px; background-color: #FEDE00;">Social</span></a>
         <form class="d-flex ms-auto me-4">
-            <input class="form-control mr-sm-2 bg-dark text-light" type="search" placeholder="Cerca"
+            <div class="input-group">
+                <input class="form-control mr-sm-2 bg-dark text-light" type="search" placeholder="Cerca"
                 aria-label="Search" style="border-color: #FEDE00">
-
+                <div class="input-group-append">
+                    <button class="btn btn-outline" style="border-color: #FEDE00; color: #FEDE00;" type="button" id="button-addon2">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
         </form>
     </nav>
 
@@ -34,20 +44,19 @@
             <div class="col-md-3">
                 <div class="card bg-dark text-light mt-5">
                     <div class="card-header">
-                        <div class="d-flex pt-2">
+                        <a href="profile.html" style="text-decoration: none; color: white;"><div class="d-flex pt-2">
                             <img src="https://picsum.photos/300/300/?dfgsf" alt="Avatar" class="me-3"
                                 style="border-radius: 50%; width: 2rem; height: 2rem;" />
                             <h5 style="line-height: 2rem;">Michele Fasullo</h5>
 
-                        </div>
+                        </div></a>
                     </div>
                     <div class=" d-flex flex-column settings-list">
-
-                        <div class="card-text">Amici</div>
-
-                        <div class="card-text">Impostazioni</div>
-                        <div class="card-text">Esci</div>
-                    </div>
+                        <a class="card-link text-light" style="text-decoration: none;" href="profile.html"><i class="fas fa-user"></i>Il mio profilo</a>
+                        <div class="card-text"><i class="fas fa-user-friends"></i>Amici</div>
+                        <div class="card-text"><i class="fas fa-cogs"></i>Impostazioni</div>
+                        <div class="card-text"><i class="fas fa-sign-out-alt"></i>Esci</div>
+                    </div>     
                 </div>
             </div>
 
@@ -56,9 +65,81 @@
             <div class="col-md-6 ">
 
                 <div class="card bg-dark text-light mt-5">
-                    <textarea class="form-control bg-dark text-light yellow-border"  placeholder="Scrivi un post..."></textarea>
+                <!--- \\\\\\\Post-->
+                <div class="card gedf-card bg-dark text-light">
+                    <div class="card-header bg-dark text-light">
+                        <ul class="nav nav-tabs card-header-tabs bg-dark text-light" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active bg-dark text-light" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Scrivi un post</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link bg-dark text-light" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images">Immagine</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body bg-dark text-light">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                                <div class="form-group">
+                                    <label class="sr-only" for="message">post</label>
+                                    <textarea class="form-control bg-dark text-light" id="message" rows="3" placeholder="A cosa stai pensando?"></textarea>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane fade bg-dark text-light" id="images" role="tabpanel" aria-labelledby="images-tab">
+                                <div class="form-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Carica immagine</label>
+                                    </div>
+                                </div>
+                                <div class="py-4"></div>
+                            </div>
+                        </div>
+                        <div class="btn-toolbar justify-content-between">
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-primary">Pubblica</button>
+                            </div>
+                            <div class="btn-group fake-social">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle fake-social" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <i class="fa fa-globe fake-social"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="#"><i class="fa fa-globe"></i> Pubblico</a>
+                                    <a class="dropdown-item" href="#"><i class="fa fa-users"></i> Amici</a>
+                                    <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Solo io</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Post /////-->
                 </div>
 
+
+                <div class="card bg-dark text-light mt-5">
+                    <div class="card-header pt-3">
+                        <div class="d-flex ">
+                            <img src="https://picsum.photos/300/300/?dfgsf" alt="Avatar"
+                                style="border-radius: 50%; width: 4rem; height: 4rem;">
+                            <h2 style="line-height: 4rem; margin-left: 1rem">Michele Fasullo</h2>
+                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                <div class="">850</div>
+                                <i class="fa fa-arrow-down clickable"></i>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="post-content p-3">
+                            L'ho sempre detto, a volte dorme più lo sveglio che il dormiente... Mi sono trovato a fare la spesa in compagnia di un essere che si spacciava per un essere umano SVEGLIO, ha dimenticato bancomat e chiavi di casa in cassa... Che faccio rubo?
+                        </p>
+                        <p class="m-0 ms-auto text-end text-secondary clickable" data-bs-toggle="modal" data-bs-target="#commento-0"><i class="fas fa-comments"></i> Leggi i commenti</p>
+                    </div>
+
+                </div>
 
                 <div class="card bg-dark text-light mt-5">
                     <div class="card-header pt-3">
@@ -67,7 +148,7 @@
                                 style="border-radius: 50%; width: 4rem; height: 4rem;">
                             <h2 style="line-height: 4rem; margin-left: 1rem">Franco De Andrea</h2>
                             <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                <i class="fa fa-arrow-up text-success clickable"></i>
+                                <i class="fa fa-arrow-up fake-social clickable"></i>
                                 <div class="">12</div>
                                 <i class="fa fa-arrow-down clickable"></i>
 
@@ -78,7 +159,7 @@
                         <p class="post-content p-3">
                             Se pastrani non va a cassare a democrazia non può ciondolare il pigiama mattinalmente quadrisburgicamente e quindi una svolta sblinda autorevolmente anche per otto.
                         </p>
-                        <p class="m-0 ms-auto text-end text-secondary clickable" data-bs-toggle="modal" data-bs-target="#commento-1">Leggi i commenti</p>
+                        <p class="m-0 ms-auto text-end text-secondary clickable" data-bs-toggle="modal" data-bs-target="#commento-1"><i class="fas fa-comments"></i> Leggi i commenti</p>
                     </div>
 
                 </div>
@@ -105,7 +186,7 @@
                         <p class="post-content p-3">
                             Veramente... dovrei sperimentare da nel retrè per la bellezza come se fosse antani e poi anansi al condominio dai portatori, pignattando di bitumare tostofroni banalmente.
                         </p>
-                        <p class="m-0 ms-auto text-end text-secondary clickable" data-bs-toggle="modal" data-bs-target="#commento-2">Leggi i commenti</p>
+                        <p class="m-0 ms-auto text-end text-secondary clickable" data-bs-toggle="modal" data-bs-target="#commento-2"><i class="fas fa-comments"></i> Leggi i commenti</p>
                     </div>
 
                 </div>
@@ -117,7 +198,7 @@
                                 style="border-radius: 50%; width: 4rem; height: 4rem;">
                             <h2 style="line-height: 4rem; margin-left: 1rem">Damiano De Marco</h2>
                             <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                <i class="fa fa-arrow-up text-success clickable"></i>
+                                <i class="fa fa-arrow-up fake-social clickable"></i>
                                 <div class="">11</div>
                                 <i class="fa fa-arrow-down clickable"></i>
 
@@ -127,369 +208,686 @@
                     <div class="card-body">
                         <img src="https://picsum.photos/600/400" class="post-content p-3 img-fluid" />
                         <p class="card-content ms-3 post-content">Guardate che bell'immagine!</p>
-                        <p href="#" class="m-0 ms-auto text-end text-secondary clickable " data-bs-toggle="modal" data-bs-target="#commento-3" >Leggi i commenti</p>
+                        <p href="#" class="m-0 ms-auto text-end text-secondary clickable " data-bs-toggle="modal" data-bs-target="#commento-3" ><i class="fas fa-comments"></i> Leggi i commenti</p>
 
                     </div>
 
-                </div>
-                                                                                                <div class="modal fade" id="commento-1" tabindex="-1" aria-labelledby="commento-1" aria-hidden="true">
-                                                                                                    <div class="modal-dialog modal-lg  modal-dialog-scrollable">
-                                                                                                    <div class="modal-content bg-dark text-light">
-                                                                                                        <div class="modal-header" style="">
-                                                                                                            <div class=" bg-dark text-light mt-1">
-                                                                                                                <div class=" pt-3">
-                                                                                                                    <div class="d-flex ">
-                                                                                                                        <img src="https://picsum.photos/300/300/" alt="Avatar"
-                                                                                                                            style="border-radius: 50%; width: 50px; height: 50px;">
-                                                                                                                        <div style="line-height: 50px;" class="ms-2 comment-name">Franco De Andrea</div>
-                                                                                                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                            <i class="fa fa-arrow-up clickable"></i>
-                                                                                                                            <div class="">10</div>
-                                                                                                                            <i class="fa fa-arrow-down text-danger clickable arrow"></i>
-
-                                                                                            
-                                                                                                                        </div>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                                <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)"> Se pastrani non va a cassare a democrazia non può ciondolare il pigiama mattinalmente quadrisburgicamente e quindi una svolta sblinda autorevolmente anche per otto. </div>
-                                                                                            
-                                                                                                            </div>
-                                                                                                        <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-                                                                                                        </div>
-                                                                                                        <div class="modal-body ms-5 pb-5" >
-                                                                                                            <div class="d-flex flex-column">
-                                                                                                                <div>
-                                                                                                                    <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfasdfcvxsd" alt="Avatar" style="border-radius: 50%; ">
-                                                                                                                        <div class="ms-2 comment-name"style="line-height: 50px; ">Benito Canistrato</div>
-                                                                                                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                            <i class="fa fa-arrow-up text-success clickable"></i>
-                                                                                                                            <div class="">12</div>
-                                                                                                                            <i class="fa fa-arrow-down clickable"></i>
-                                                                                            
-                                                                                                                        </div>
-                                                                                                                    
-                                                                                                                    </div>
-                                                                                                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
-                                                                                                                    
-                                                                                                                </div>
-
-                                                                                                                <div>
-                                                                                                                    <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?d3dfgsfsd" alt="Avatar" style="border-radius: 50%; ">
-                                                                                                                        <div class="ms-2 comment-name"style="line-height: 50px; ">Angelo Artigiani</div>
-                                                                                                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                            <i class="fa fa-arrow-up text-success clickable"></i>
-                                                                                                                            <div class="">12</div>
-                                                                                                                            <i class="fa fa-arrow-down clickable"></i>
-                                                                                            
-                                                                                                                        </div>
-                                                                                                                    
-                                                                                                                    </div>
-                                                                                                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
-                                                                                                                    
-                                                                                                                </div>
-
-                                                                                                                <div>
-                                                                                                                    <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfs2sfd" alt="Avatar" style="border-radius: 50%; ">
-                                                                                                                        <div class="ms-2 comment-name"style="line-height: 50px; ">Alessio Bitume</div>
-                                                                                                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                            <i class="fa fa-arrow-up text-success clickable"></i>
-                                                                                                                            <div class="">12</div>
-                                                                                                                            <i class="fa fa-arrow-down clickable"></i>
-                                                                                            
-                                                                                                                        </div>
-                                                                                                                    
-                                                                                                                    </div>
-                                                                                                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
-                                                                                                                    
-                                                                                                                </div>
-
-                                                                                                                <div>
-                                                                                                                    <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dzfsd" alt="Avatar" style="border-radius: 50%; ">
-                                                                                                                        <div class="ms-2 comment-name"style="line-height: 50px; ">Lorenzo Mangiabarca</div>
-                                                                                                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                            <i class="fa fa-arrow-up text-success clickable"></i>
-                                                                                                                            <div class="">12</div>
-                                                                                                                            <i class="fa fa-arrow-down clickable"></i>
-                                                                                            
-                                                                                                                        </div>
-                                                                                                                    
-                                                                                                                    </div>
-                                                                                                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
-                                                                                                    
-                                                                                                                </div>
-
-                                                                                                                
-
-                                                                                                            </div>
-                                                                                                            <div>
-
-                                                                                                            </div>
-                                                                                                            
-                                                                                                        
-                                                                                                    </div>
-                                                                                                    <form class="m-3 d-flex">
-                                                                                                        <textarea class="form-control bg-dark text-light yellow-border" style="height: 2rem;"name="" id="" cols="30" rows="10"></textarea>
-                                                                                                        
-                                                                                                        <button class="btn btn-secondary  ms-2 float-end"><i class="fas fa-paper-plane"></i></button>
-                                                                                                    </form>
-                                                                                                    
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-
-
-
-
-
-            
-            
-                                                                                                <!-- Modal -->
-                                                                                                                    <div class="modal fade" id="commento-2" tabindex="-2" aria-labelledby="commento-2" aria-hidden="true">
-                                                                                                                        <div class="modal-dialog modal-lg  modal-dialog-scrollable">
-                                                                                                                        <div class="modal-content bg-dark text-light">
-                                                                                                                            <div class="modal-header" style="">
-                                                                                                                                <div class=" bg-dark text-light mt-1">
-                                                                                                                                    <div class=" pt-3">
-                                                                                                                                        <div class="d-flex ">
-                                                                                                                                            <img src="https://picsum.photos/300/300/?sdsas" alt="Avatar"
-                                                                                                                                                style="border-radius: 50%; width: 50px; height: 50px;">
-                                                                                                                                            <div style="line-height: 50px;" class="ms-2 comment-name">Stefano De Giuseppi</div>
-                                                                                                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                                                <i class="fa fa-arrow-up clickable"></i>
-                                                                                                                                                <div class="">10</div>
-                                                                                                                                                <i class="fa fa-arrow-down text-danger clickable arrow"></i>
-
-                                                                                                                
-                                                                                                                                            </div>
-                                                                                                                                        </div>
-                                                                                                                                    </div>
-                                                                                                                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Veramente... dovrei sperimentare da nel retrè per la bellezza come se fosse antani e poi anansi al condominio dai portatori, pignattando di bitumare tostofroni banalmente.</div>
-                                                                                                                
-                                                                                                                                </div>
-                                                                                                                            <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-                                                                                                                            </div>
-                                                                                                                            <div class="modal-body ms-5 pb-5" >
-                                                                                                                                <div class="d-flex flex-column">
-                                                                                                                                    <div>
-                                                                                                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfasdfcvxsd" alt="Avatar" style="border-radius: 50%; ">
-                                                                                                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Benito Canistrato</div>
-                                                                                                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                                                <i class="fa fa-arrow-up text-success clickable"></i>
-                                                                                                                                                <div class="">12</div>
-                                                                                                                                                <i class="fa fa-arrow-down clickable"></i>
-                                                                                                                
-                                                                                                                                            </div>
-                                                                                                                                        
-                                                                                                                                        </div>
-                                                                                                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
-                                                                                                                                        
-                                                                                                                                    </div>
-
-                                                                                                                                    <div>
-                                                                                                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?d3dfgsfsd" alt="Avatar" style="border-radius: 50%; ">
-                                                                                                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Angelo Artigiani</div>
-                                                                                                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                                                <i class="fa fa-arrow-up text-success clickable"></i>
-                                                                                                                                                <div class="">12</div>
-                                                                                                                                                <i class="fa fa-arrow-down clickable"></i>
-                                                                                                                
-                                                                                                                                            </div>
-                                                                                                                                        
-                                                                                                                                        </div>
-                                                                                                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
-                                                                                                                                        
-                                                                                                                                    </div>
-
-                                                                                                                                    <div>
-                                                                                                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfs2sfd" alt="Avatar" style="border-radius: 50%; ">
-                                                                                                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Alessio Bitume</div>
-                                                                                                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                                                <i class="fa fa-arrow-up text-success clickable"></i>
-                                                                                                                                                <div class="">12</div>
-                                                                                                                                                <i class="fa fa-arrow-down clickable"></i>
-                                                                                                                
-                                                                                                                                            </div>
-                                                                                                                                        
-                                                                                                                                        </div>
-                                                                                                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
-                                                                                                                                        
-                                                                                                                                    </div>
-
-                                                                                                                                    <div>
-                                                                                                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dzfsd" alt="Avatar" style="border-radius: 50%; ">
-                                                                                                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Lorenzo Mangiabarca</div>
-                                                                                                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                                                <i class="fa fa-arrow-up text-success clickable"></i>
-                                                                                                                                                <div class="">12</div>
-                                                                                                                                                <i class="fa fa-arrow-down clickable"></i>
-                                                                                                                
-                                                                                                                                            </div>
-                                                                                                                                        
-                                                                                                                                        </div>
-                                                                                                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
-                                                                                                                        
-                                                                                                                                    </div>
-
-                                                                                                                                    
-
-                                                                                                                                </div>
-                                                                                                                                <div>
-
-                                                                                                                                </div>
-                                                                                                                                
-                                                                                                                            
-                                                                                                                        </div>
-                                                                                                                        <form class="m-3 d-flex">
-                                                                                                                            <textarea class="form-control bg-dark text-light yellow-border" style="height: 2rem;"name="" id="" cols="30" rows="10"></textarea>
-                                                                                                                            
-                                                                                                                            <button class="btn btn-secondary  ms-2 float-end"><i class="fas fa-paper-plane"></i></button>
-                                                                                                                        </form>
-                                                                                                                        
-                                                                                                                        </div>
-                                                                                                                    </div></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                                                                                    <div class="modal fade" id="commento-3" tabindex="-3" aria-labelledby="commento-3" aria-hidden="true">
-                                                                                                                        <div class="modal-dialog modal-lg  modal-dialog-scrollable">
-                                                                                                                        <div class="modal-content bg-dark text-light">
-                                                                                                                            <div class="modal-header" style="">
-                                                                                                                                <div class=" bg-dark text-light mt-1">
-                                                                                                                                    <div class=" pt-3">
-                                                                                                                                        <div class="d-flex ">
-                                                                                                                                            <img src="https://picsum.photos/300/300/?sdsreas" alt="Avatar"
-                                                                                                                                                style="border-radius: 50%; width: 50px; height: 50px;">
-                                                                                                                                            <div style="line-height: 50px;" class="ms-2 comment-name">Damiano De Marco</div>
-                                                                                                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                                                <i class="fa fa-arrow-up clickable"></i>
-                                                                                                                                                <div class="">10</div>
-                                                                                                                                                <i class="fa fa-arrow-down text-danger clickable arrow"></i>
-
-                                                                                                                
-                                                                                                                                            </div>
-                                                                                                                                        </div>
-                                                                                                                                    </div>
-                                                                                                                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Veramente... dovrei sperimentare da nel retrè per la bellezza come se fosse antani e poi anansi al condominio dai portatori, pignattando di bitumare tostofroni banalmente.</div>
-                                                                                                                
-                                                                                                                                </div>
-                                                                                                                            <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-                                                                                                                            </div>
-                                                                                                                            <div class="modal-body ms-5 pb-5" >
-                                                                                                                                <div class="d-flex flex-column">
-                                                                                                                                    <div>
-                                                                                                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfasdfcvxsd" alt="Avatar" style="border-radius: 50%; ">
-                                                                                                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Benito Canistrato</div>
-                                                                                                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                                                <i class="fa fa-arrow-up text-success clickable"></i>
-                                                                                                                                                <div class="">12</div>
-                                                                                                                                                <i class="fa fa-arrow-down clickable"></i>
-                                                                                                                
-                                                                                                                                            </div>
-                                                                                                                                        
-                                                                                                                                        </div>
-                                                                                                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
-                                                                                                                                        
-                                                                                                                                    </div>
-
-                                                                                                                                    <div>
-                                                                                                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?d3dfgsfsd" alt="Avatar" style="border-radius: 50%; ">
-                                                                                                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Angelo Artigiani</div>
-                                                                                                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                                                <i class="fa fa-arrow-up text-success clickable"></i>
-                                                                                                                                                <div class="">12</div>
-                                                                                                                                                <i class="fa fa-arrow-down clickable"></i>
-                                                                                                                
-                                                                                                                                            </div>
-                                                                                                                                        
-                                                                                                                                        </div>
-                                                                                                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
-                                                                                                                                        
-                                                                                                                                    </div>
-
-                                                                                                                                    <div>
-                                                                                                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfs2sfd" alt="Avatar" style="border-radius: 50%; ">
-                                                                                                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Alessio Bitume</div>
-                                                                                                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                                                <i class="fa fa-arrow-up text-success clickable"></i>
-                                                                                                                                                <div class="">12</div>
-                                                                                                                                                <i class="fa fa-arrow-down clickable"></i>
-                                                                                                                
-                                                                                                                                            </div>
-                                                                                                                                        
-                                                                                                                                        </div>
-                                                                                                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
-                                                                                                                                        
-                                                                                                                                    </div>
-
-                                                                                                                                    <div>
-                                                                                                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dzfsd" alt="Avatar" style="border-radius: 50%; ">
-                                                                                                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Lorenzo Mangiabarca</div>
-                                                                                                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
-                                                                                                                                                <i class="fa fa-arrow-up text-success clickable"></i>
-                                                                                                                                                <div class="">12</div>
-                                                                                                                                                <i class="fa fa-arrow-down clickable"></i>
-                                                                                                                
-                                                                                                                                            </div>
-                                                                                                                                        
-                                                                                                                                        </div>
-                                                                                                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
-                                                                                                                        
-                                                                                                                                    </div>
-
-                                                                                                                                    
-
-                                                                                                                                </div>
-                                                                                                                                <div>
-
-                                                                                                                                </div>
-                                                                                                                                
-                                                                                                                            
-                                                                                                                        </div>
-                                                                                                                        <form class="m-3 d-flex">
-                                                                                                                            <textarea class="form-control bg-dark text-light yellow-border" style="height: 2rem;"name="" id="" cols="30" rows="10"></textarea>
-                                                                                                                            
-                                                                                                                            <button class="btn btn-secondary  ms-2 float-end"><i class="fas fa-paper-plane"></i></button>
-                                                                                                                        </form>
-                                                                                                                        
-                                                                                                                        </div>
-                                                                                                                    </div>
-  
+                    <div class="modal fade" id="commento-0" tabindex="-0" aria-labelledby="commento-0" aria-hidden="true">
+                        <div class="modal-dialog modal-lg  modal-dialog-scrollable">
+                        <div class="modal-content bg-dark text-light">
+                            <div class="modal-header">
+                                <div class=" bg-dark text-light mt-1">
+                                    <div class=" pt-3">
+                                        <div class="d-flex ">
+                                            <img src="https://picsum.photos/300/300/?dfgsf" alt="Avatar"
+                                                style="border-radius: 50%; width: 50px; height: 50px;">
+                                            <div style="line-height: 50px;" class="ms-2 comment-name">Michele Fasullo</div>
+                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                <div class="">850</div>
+                                                <i class="fa fa-arrow-down clickable"></i>
 
                 
-            <div class="col-md-3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)"> L'ho sempre detto, a volte dorme più lo sveglio che il dormiente... Mi sono trovato a fare la spesa in compagnia di un essere che si spacciava per un essere umano SVEGLIO, ha dimenticato bancomat e chiavi di casa in cassa... Che faccio rubo?</div>
+                
+                                </div>
+                            <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                            </div>
+                            <div class="modal-body ms-5 pb-5" >
+                                <div class="d-flex flex-column">
+                                    <div>
+                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfasdfcvxsd" alt="Avatar" style="border-radius: 50%; ">
+                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Melissa Quaranta</div>
+                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                <div class="">12</div>
+                                                <i class="fa fa-arrow-down clickable"></i>
+                
+                                            </div>
+                                        
+                                        </div>
+                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Hai ragionissima, ci sono alcuni che non sanno nemmeno di essere svegli!!! 🤣</div>
+                                        
+                                    </div>
 
+                                    <div>
+                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?d3dfgsfsd" alt="Avatar" style="border-radius: 50%; ">
+                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Christian Campanile</div>
+                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                <div class="">12</div>
+                                                <i class="fa fa-arrow-down clickable"></i>
+                
+                                            </div>
+                                        
+                                        </div>
+                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Allora non corro il rischio di dormire. 💤</div>
+                                        
+                                    </div>
+
+                                    <div>
+                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfs2sfd" alt="Avatar" style="border-radius: 50%; ">
+                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Gabriele Fabbricatore</div>
+                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                <div class="">12</div>
+                                                <i class="fa fa-arrow-down clickable"></i>
+                
+                                            </div>
+                                        
+                                        </div>
+                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Bella questa, mi sa che l'ho sentita da quel trio! 😊</div>
+                                        
+                                    </div>
+
+                                    <div>
+                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dzfsd" alt="Avatar" style="border-radius: 50%; ">
+                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Lorenzo Sottostivale</div>
+                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                <div class="">12</div>
+                                                <i class="fa fa-arrow-down clickable"></i>
+                
+                                            </div>
+                                        
+                                        </div>
+                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Sei il mio influencer preferito!!! 🎉</div>
+                        
+                                    </div>
+
+                                    
+
+                                </div>
+                                <div>
+
+                                </div>
+                                
+                            
+                        </div>
+                        <form class="m-3 d-flex">
+                            <textarea class="form-control bg-dark text-light yellow-border" style="height: 2rem;"name="" id="" cols="30" rows="10"></textarea>
+                            
+                            <button class="btn btn-secondary  ms-2 float-end"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                        
+                        </div>
+                    </div>
+                </div>    
+
+                </div>
+                <div class="modal fade" id="commento-1" tabindex="-1" aria-labelledby="commento-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg  modal-dialog-scrollable">
+                    <div class="modal-content bg-dark text-light">
+                        <div class="modal-header" style="">
+                            <div class=" bg-dark text-light mt-1">
+                                <div class=" pt-3">
+                                    <div class="d-flex ">
+                                        <img src="https://picsum.photos/300/300/" alt="Avatar"
+                                            style="border-radius: 50%; width: 50px; height: 50px;">
+                                        <div style="line-height: 50px;" class="ms-2 comment-name">Franco De Andrea</div>
+                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                            <i class="fa fa-arrow-up clickable"></i>
+                                            <div class="">10</div>
+                                            <i class="fa fa-arrow-down text-danger clickable arrow"></i>
+
+            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)"> Se pastrani non va a cassare a democrazia non può ciondolare il pigiama mattinalmente quadrisburgicamente e quindi una svolta sblinda autorevolmente anche per otto. </div>
+            
+                            </div>
+                        <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                        </div>
+                        <div class="modal-body ms-5 pb-5" >
+                            <div class="d-flex flex-column">
+                                <div>
+                                    <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfasdfcvxsd" alt="Avatar" style="border-radius: 50%; ">
+                                        <div class="ms-2 comment-name"style="line-height: 50px; ">Benito Canistrato</div>
+                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                            <i class="fa fa-arrow-up fake-social clickable"></i>
+                                            <div class="">12</div>
+                                            <i class="fa fa-arrow-down clickable"></i>
+            
+                                        </div>
+                                    
+                                    </div>
+                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                    
+                                </div>
+
+                                <div>
+                                    <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?d3dfgsfsd" alt="Avatar" style="border-radius: 50%; ">
+                                        <div class="ms-2 comment-name"style="line-height: 50px; ">Angelo Artigiani</div>
+                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                            <i class="fa fa-arrow-up fake-social clickable"></i>
+                                            <div class="">12</div>
+                                            <i class="fa fa-arrow-down clickable"></i>
+            
+                                        </div>
+                                    
+                                    </div>
+                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                    
+                                </div>
+
+                                <div>
+                                    <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfs2sfd" alt="Avatar" style="border-radius: 50%; ">
+                                        <div class="ms-2 comment-name"style="line-height: 50px; ">Alessio Bitume</div>
+                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                            <i class="fa fa-arrow-up fake-social clickable"></i>
+                                            <div class="">12</div>
+                                            <i class="fa fa-arrow-down clickable"></i>
+            
+                                        </div>
+                                    
+                                    </div>
+                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                    
+                                </div>
+
+                                <div>
+                                    <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dzfsd" alt="Avatar" style="border-radius: 50%; ">
+                                        <div class="ms-2 comment-name"style="line-height: 50px; ">Lorenzo Mangiabarca</div>
+                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                            <i class="fa fa-arrow-up fake-social clickable"></i>
+                                            <div class="">12</div>
+                                            <i class="fa fa-arrow-down clickable"></i>
+            
+                                        </div>
+                                    
+                                    </div>
+                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                    
+                                </div>
+
+                                
+
+                            </div>
+                            <div>
+
+                            </div>
+                            
+                        
+                    </div>
+                    <form class="m-3 d-flex">
+                        <textarea class="form-control bg-dark text-light yellow-border" style="height: 2rem;"name="" id="" cols="30" rows="10"></textarea>
+                        
+                        <button class="btn btn-secondary  ms-2 float-end"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    
+                    </div>
+                </div>
             </div>
-        </div>
 
 
-    </div>
+                    <div class="modal fade" id="commento-1" tabindex="-1" aria-labelledby="commento-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg  modal-dialog-scrollable">
+                        <div class="modal-content bg-dark text-light">
+                            <div class="modal-header" style="">
+                                <div class=" bg-dark text-light mt-1">
+                                    <div class=" pt-3">
+                                        <div class="d-flex ">
+                                            <img src="https://picsum.photos/300/300/" alt="Avatar"
+                                                style="border-radius: 50%; width: 50px; height: 50px;">
+                                            <div style="line-height: 50px;" class="ms-2 comment-name">Franco De Andrea</div>
+                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                <i class="fa fa-arrow-up clickable"></i>
+                                                <div class="">10</div>
+                                                <i class="fa fa-arrow-down text-danger clickable arrow"></i>
+
+                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)"> Se pastrani non va a cassare a democrazia non può ciondolare il pigiama mattinalmente quadrisburgicamente e quindi una svolta sblinda autorevolmente anche per otto. </div>
+                
+                                </div>
+                            <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                            </div>
+                            <div class="modal-body ms-5 pb-5" >
+                                <div class="d-flex flex-column">
+                                    <div>
+                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfasdfcvxsd" alt="Avatar" style="border-radius: 50%; ">
+                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Benito Canistrato</div>
+                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                <div class="">12</div>
+                                                <i class="fa fa-arrow-down clickable"></i>
+                
+                                            </div>
+                                        
+                                        </div>
+                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                        
+                                    </div>
+
+                                    <div>
+                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?d3dfgsfsd" alt="Avatar" style="border-radius: 50%; ">
+                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Angelo Artigiani</div>
+                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                <div class="">12</div>
+                                                <i class="fa fa-arrow-down clickable"></i>
+                
+                                            </div>
+                                        
+                                        </div>
+                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                        
+                                    </div>
+
+                                    <div>
+                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfs2sfd" alt="Avatar" style="border-radius: 50%; ">
+                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Alessio Bitume</div>
+                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                <div class="">12</div>
+                                                <i class="fa fa-arrow-down clickable"></i>
+                
+                                            </div>
+                                        
+                                        </div>
+                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                        
+                                    </div>
+
+                                    <div>
+                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dzfsd" alt="Avatar" style="border-radius: 50%; ">
+                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Lorenzo Mangiabarca</div>
+                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                <div class="">12</div>
+                                                <i class="fa fa-arrow-down clickable"></i>
+                
+                                            </div>
+                                        
+                                        </div>
+                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                        
+                                    </div>
+
+                                    
+
+                                </div>
+                                <div>
+
+                                </div>
+                                
+                            
+                        </div>
+                        <form class="m-3 d-flex">
+                            <textarea class="form-control bg-dark text-light yellow-border" style="height: 2rem;"name="" id="" cols="30" rows="10"></textarea>
+                            
+                            <button class="btn btn-secondary  ms-2 float-end"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                        
+                        </div>
+                    </div>
+                </div>    
+
+                </div>
+                <div class="modal fade" id="commento-1" tabindex="-1" aria-labelledby="commento-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg  modal-dialog-scrollable">
+                    <div class="modal-content bg-dark text-light">
+                        <div class="modal-header" style="">
+                            <div class=" bg-dark text-light mt-1">
+                                <div class=" pt-3">
+                                    <div class="d-flex ">
+                                        <img src="https://picsum.photos/300/300/" alt="Avatar"
+                                            style="border-radius: 50%; width: 50px; height: 50px;">
+                                        <div style="line-height: 50px;" class="ms-2 comment-name">Franco De Andrea</div>
+                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                            <i class="fa fa-arrow-up clickable"></i>
+                                            <div class="">10</div>
+                                            <i class="fa fa-arrow-down text-danger clickable arrow"></i>
+
+            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)"> Se pastrani non va a cassare a democrazia non può ciondolare il pigiama mattinalmente quadrisburgicamente e quindi una svolta sblinda autorevolmente anche per otto. </div>
+            
+                            </div>
+                        <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                        </div>
+                        <div class="modal-body ms-5 pb-5" >
+                            <div class="d-flex flex-column">
+                                <div>
+                                    <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfasdfcvxsd" alt="Avatar" style="border-radius: 50%; ">
+                                        <div class="ms-2 comment-name"style="line-height: 50px; ">Benito Canistrato</div>
+                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                            <i class="fa fa-arrow-up fake-social clickable"></i>
+                                            <div class="">12</div>
+                                            <i class="fa fa-arrow-down clickable"></i>
+            
+                                        </div>
+                                    
+                                    </div>
+                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                    
+                                </div>
+
+                                <div>
+                                    <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?d3dfgsfsd" alt="Avatar" style="border-radius: 50%; ">
+                                        <div class="ms-2 comment-name"style="line-height: 50px; ">Angelo Artigiani</div>
+                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                            <i class="fa fa-arrow-up fake-social clickable"></i>
+                                            <div class="">12</div>
+                                            <i class="fa fa-arrow-down clickable"></i>
+            
+                                        </div>
+                                    
+                                    </div>
+                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                    
+                                </div>
+
+                                <div>
+                                    <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfs2sfd" alt="Avatar" style="border-radius: 50%; ">
+                                        <div class="ms-2 comment-name"style="line-height: 50px; ">Alessio Bitume</div>
+                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                            <i class="fa fa-arrow-up fake-social clickable"></i>
+                                            <div class="">12</div>
+                                            <i class="fa fa-arrow-down clickable"></i>
+            
+                                        </div>
+                                    
+                                    </div>
+                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                    
+                                </div>
+
+                                <div>
+                                    <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dzfsd" alt="Avatar" style="border-radius: 50%; ">
+                                        <div class="ms-2 comment-name"style="line-height: 50px; ">Lorenzo Mangiabarca</div>
+                                        <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                            <i class="fa fa-arrow-up fake-social clickable"></i>
+                                            <div class="">12</div>
+                                            <i class="fa fa-arrow-down clickable"></i>
+            
+                                        </div>
+                                    
+                                    </div>
+                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                    
+                                </div>
+
+                                
+
+                            </div>
+                            <div>
+
+                            </div>
+                            
+                        
+                    </div>
+                    <form class="m-3 d-flex">
+                        <textarea class="form-control bg-dark text-light yellow-border" style="height: 2rem;"name="" id="" cols="30" rows="10"></textarea>
+                        
+                        <button class="btn btn-secondary  ms-2 float-end"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    
+                    </div>
+                </div>
+            </div>
 
 
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
 
-   
+
+                <!-- Modal -->
+                                    <div class="modal fade" id="commento-2" tabindex="-2" aria-labelledby="commento-2" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg  modal-dialog-scrollable">
+                                        <div class="modal-content bg-dark text-light">
+                                            <div class="modal-header" style="">
+                                                <div class=" bg-dark text-light mt-1">
+                                                    <div class=" pt-3">
+                                                        <div class="d-flex ">
+                                                            <img src="https://picsum.photos/300/300/?sdsas" alt="Avatar"
+                                                                style="border-radius: 50%; width: 50px; height: 50px;">
+                                                            <div style="line-height: 50px;" class="ms-2 comment-name">Stefano De Giuseppi</div>
+                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                                <i class="fa fa-arrow-up clickable"></i>
+                                                                <div class="">10</div>
+                                                                <i class="fa fa-arrow-down text-danger clickable arrow"></i>
+
+                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Veramente... dovrei sperimentare da nel retrè per la bellezza come se fosse antani e poi anansi al condominio dai portatori, pignattando di bitumare tostofroni banalmente.</div>
+                                
+                                                </div>
+                                            <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                                            </div>
+                                            <div class="modal-body ms-5 pb-5" >
+                                                <div class="d-flex flex-column">
+                                                    <div>
+                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfasdfcvxsd" alt="Avatar" style="border-radius: 50%; ">
+                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Benito Canistrato</div>
+                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                                <div class="">12</div>
+                                                                <i class="fa fa-arrow-down clickable"></i>
+                                
+                                                            </div>
+                                                        
+                                                        </div>
+                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                                        
+                                                    </div>
+
+                                                    <div>
+                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?d3dfgsfsd" alt="Avatar" style="border-radius: 50%; ">
+                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Angelo Artigiani</div>
+                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                                <div class="">12</div>
+                                                                <i class="fa fa-arrow-down clickable"></i>
+                                
+                                                            </div>
+                                                        
+                                                        </div>
+                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                                        
+                                                    </div>
+
+                                                    <div>
+                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfs2sfd" alt="Avatar" style="border-radius: 50%; ">
+                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Alessio Bitume</div>
+                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                                <div class="">12</div>
+                                                                <i class="fa fa-arrow-down clickable"></i>
+                                
+                                                            </div>
+                                                        
+                                                        </div>
+                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                                        
+                                                    </div>
+
+                                                    <div>
+                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dzfsd" alt="Avatar" style="border-radius: 50%; ">
+                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Lorenzo Mangiabarca</div>
+                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                                <div class="">12</div>
+                                                                <i class="fa fa-arrow-down clickable"></i>
+                                
+                                                            </div>
+                                                        
+                                                        </div>
+                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                        
+                                                    </div>
+
+                                                    
+
+                                                </div>
+                                                <div>
+
+                                                </div>
+                                                
+                                            
+                                        </div>
+                                        <form class="m-3 d-flex">
+                                            <textarea class="form-control bg-dark text-light yellow-border" style="height: 2rem;"name="" id="" cols="30" rows="10"></textarea>
+                                            
+                                            <button class="btn btn-secondary  ms-2 float-end"><i class="fas fa-paper-plane"></i></button>
+                                        </form>
+                                        
+                                        </div>
+                                    </div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <div class="modal fade" id="commento-3" tabindex="-3" aria-labelledby="commento-3" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg  modal-dialog-scrollable">
+                                        <div class="modal-content bg-dark text-light">
+                                            <div class="modal-header" style="">
+                                                <div class=" bg-dark text-light mt-1">
+                                                    <div class=" pt-3">
+                                                        <div class="d-flex ">
+                                                            <img src="https://picsum.photos/300/300/?sdsreas" alt="Avatar"
+                                                                style="border-radius: 50%; width: 50px; height: 50px;">
+                                                            <div style="line-height: 50px;" class="ms-2 comment-name">Damiano De Marco</div>
+                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                                <i class="fa fa-arrow-up clickable"></i>
+                                                                <div class="">10</div>
+                                                                <i class="fa fa-arrow-down text-danger clickable arrow"></i>
+
+                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Veramente... dovrei sperimentare da nel retrè per la bellezza come se fosse antani e poi anansi al condominio dai portatori, pignattando di bitumare tostofroni banalmente.</div>
+                                
+                                                </div>
+                                            <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                                            </div>
+                                            <div class="modal-body ms-5 pb-5" >
+                                                <div class="d-flex flex-column">
+                                                    <div>
+                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfasdfcvxsd" alt="Avatar" style="border-radius: 50%; ">
+                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Benito Canistrato</div>
+                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                                <div class="">12</div>
+                                                                <i class="fa fa-arrow-down clickable"></i>
+                                
+                                                            </div>
+                                                        
+                                                        </div>
+                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                                        
+                                                    </div>
+
+                                                    <div>
+                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?d3dfgsfsd" alt="Avatar" style="border-radius: 50%; ">
+                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Angelo Artigiani</div>
+                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                                <div class="">12</div>
+                                                                <i class="fa fa-arrow-down clickable"></i>
+                                
+                                                            </div>
+                                                        
+                                                        </div>
+                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                                        
+                                                    </div>
+
+                                                    <div>
+                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dfs2sfd" alt="Avatar" style="border-radius: 50%; ">
+                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Alessio Bitume</div>
+                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                                <div class="">12</div>
+                                                                <i class="fa fa-arrow-down clickable"></i>
+                                
+                                                            </div>
+                                                        
+                                                        </div>
+                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                                        
+                                                    </div>
+
+                                                    <div>
+                                                        <div class="d-flex"><img class="img-comment" src="https://picsum.photos/50/50/?dzfsd" alt="Avatar" style="border-radius: 50%; ">
+                                                            <div class="ms-2 comment-name"style="line-height: 50px; ">Lorenzo Mangiabarca</div>
+                                                            <div class="ms-auto d-flex flex-column justify-content-center text-center">
+                                                                <i class="fa fa-arrow-up fake-social clickable"></i>
+                                                                <div class="">12</div>
+                                                                <i class="fa fa-arrow-down clickable"></i>
+                                
+                                                            </div>
+                                                        
+                                                        </div>
+                                                        <div  class="comment-text" style="margin-left: calc(50px + 0.5rem)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, earum obcaecati, consequatur sint voluptatum voluptatibus culpa tempora facere dolorem modi delectus voluptate, dolor explicabo. Rem dicta quia reprehenderit sapiente corrupti.</div>
+                                        
+                                                    </div>
+
+                                                    
+
+                                                </div>
+                                                <div>
+
+                                                </div>
+                                                
+                                            
+                                        </div>
+                                        <form class="m-3 d-flex">
+                                            <textarea class="form-control bg-dark text-light yellow-border" style="height: 2rem;"name="" id="" cols="30" rows="10"></textarea>
+                                            
+                                            <button class="btn btn-secondary  ms-2 float-end"><i class="fas fa-paper-plane"></i></button>
+                                        </form>
+                                        
+                                        </div>
+                                    </div>
+
+
+
+<div class="col-md-3">
+
+</div>
+</div>
+
+
+</div>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+crossorigin="anonymous"></script>
+
+
 
 </html>
